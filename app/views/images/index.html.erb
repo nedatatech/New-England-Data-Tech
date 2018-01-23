@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <% @images.each do |image| %>
+    <div class="col-xs-6 well">
+      <div>
+        <div class="text-center">
+          <%= link_to image.title, image_path(image), class: "h3" %>
+        </div>
+        <div>
+          <%= link_to image_path(image) do %>
+            <%= image_tag(image.file_url, class: "col-xs-12") if image.file.present? %>
+          <% end %>
+        </div>
+        <div class="col-xs-12"><%= image.description %></div>
+        <% if logged_in? %>
+          <div class="text-right">
+            <%= link_to edit_image_path(image) do %>
+              <button type="button" class="btn btn-primary">
+                Edit
+              </button>
+            <% end %>
+            <%= link_to image, method: :delete, data: { confirm: "Are you sure?" } do %>
+              <button type="button" class="btn btn-danger">
+                Destroy
+              </button>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+<%= link_to "Log out", logout_path, method: :delete %>
+<% if logged_in? %>
+  <%= link_to "New Photo", new_image_path %>
+<% end %>

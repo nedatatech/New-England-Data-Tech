@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-xs-9">
+    <%= image_tag(@image.file_url, :width => "100%") if @image.file.present? %>
+  </div>
+
+  <div class="col-xs-3">
+    <p><b>Title: </b><%= @image.title%></p>
+    <p><b>Description: </b><%= @image.description %></p>
+    <p>
+      <%= link_to 'Edit', edit_image_path(@image) %> |
+      <%= link_to 'Delete', @image, confirm: 'Are you sure?', method: :delete %> |
+      <%= link_to 'Back', images_path %>
+    </p>
+  </div>
+</div>
