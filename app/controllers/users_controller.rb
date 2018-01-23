@@ -1,25 +1,28 @@
 class UsersController < ApplicationController
+
+  def show
+    @user = User.find(params[:id])
+  end
+
   def new
     @user = User.new
   end
 
   def create
-    @user = User.new(allowed_params)
+    @user = User.new(user_params)
     if @user.save
-      redirect_to root_url, notice: 'Thank you for signing up!'
+      log_in @user
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @user
     else
-      render :new
+      render 'new'
     end
-  end
-
-  def destroy
-    session[:user_id] = nil
-    redirect_to root_url, notice: 'Logged Out!'
   end
 
   private
 
-  def allowed_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
-  end
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
+    end
 end
