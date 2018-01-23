@@ -11,8 +11,9 @@
           <%= link_to image_path(image) do %>
             <%= image_tag(image.file_url, class: "col-xs-12") if image.file.present? %>
           <% end %>
+        <br><br>
         </div>
-        <div class="col-xs-12"><%= image.description %></div>
+        <div class="text-center"><%= image.description %></div>
         <% if logged_in? %>
           <div class="text-right">
             <%= link_to edit_image_path(image) do %>
@@ -33,7 +34,6 @@
 </div>
 
 <br>
-<%= link_to "Log out", logout_path, method: :delete %>
 <% if logged_in? %>
   <%= link_to "New Photo", new_image_path %>
 <% end %>
