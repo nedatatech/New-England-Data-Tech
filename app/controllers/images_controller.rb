@@ -14,7 +14,8 @@ class ImagesController < ApplicationController
 
   # GET /images/new
   def new
-    @image = Image.new
+    @image = Image.new    
+    @albums_images_attributes = @image.albums_images.build
   end
 
   # GET /images/1/edit
@@ -23,12 +24,28 @@ class ImagesController < ApplicationController
 
   # POST /images
   # POST /images.json
-  def create
+  def create    
     @image = Image.new(image_params)
-
-    respond_to do |format|
+    #x = Hash.new({album_id: 11, image_id: 5})
+    #@album = Album.find(albums_images_attributes[:album_id])
+    #album_id = params[:image][:album].values.first
+    #@album = Album.find(album_id)    
+    respond_to do |format|      
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        #byebug
+        #@album.images.create
+        #byebug
+        ##params[:image][:albums_images]['album_id'] do |a|
+        ##  @albums_images_attributes = @image.albums_images_attributes.create!(:album_id => a)
+        @image.albums_images.create!(:album_id => params[:image][:albums_images]['album_id'])
+        ##end  
+        #@image.albums_images.create
+            #album_id = params[:image][:album].values.first
+            #@album = Album.find(album_id)
+            #@album = @image.albums.create
+            #@album.images.create
+        #@image.albums_images.new(:image_id => @image.id)
+        format.html { redirect_to root_url, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }
@@ -42,7 +59,7 @@ class ImagesController < ApplicationController
   def update
     respond_to do |format|
       if @image.update(image_params)
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+        format.html { redirect_to albums_url, notice: 'Image was successfully updated.' }
         format.json { render :show, status: :ok, location: @image }
       else
         format.html { render :edit }
@@ -56,7 +73,9 @@ class ImagesController < ApplicationController
   def destroy
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      #@image = Image.find(params[:id])
+      #x = @image.albums.find(:first, :conditions => ["image_id =?", @image])
+      format.html { redirect_to album_url, notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,11 +83,12 @@ class ImagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_image
+      #byebug
       @image = Image.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:title, :description, :file)
+      params.require(:image).permit(:title, :description, :file, :albums_images_attributes => [:album_id])
     end
 end

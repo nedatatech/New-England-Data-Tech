@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  <div class="field">    
+    <%= f.fields_for :albums_images do |ff| %>
+      <%= ff.label :album %>
+      <% ff.text_field :name %>
+      <%= ff.select(:album_id, options_from_collection_for_select(Album.all, "id", "name")) %>
+    <% end %>
+    
+  </div>
+
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>

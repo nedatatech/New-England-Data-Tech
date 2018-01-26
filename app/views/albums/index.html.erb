@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <% @albums.each do |album| %>
+    <div class="col-xs-6 well">
+      <div>
+        <div class="text-center">
+          <%= link_to album.name, album_path(album), class: "h3" %>
+        </div>
+        <div>
+          <%= link_to album_path(album) do %>
+            <%= image_tag(album.name, class: "col-xs-12") if album.name.present? %>
+          <% end %>
+        <br><br>
+        </div>
+        <div class="text-center"><%= album.name %></div>
+        <% if logged_in? %>
+          <div class="text-right">
+            <%= link_to edit_album_path(album) do %>
+              <button type="button" class="btn btn-primary">
+                Edit
+              </button>
+            <% end %>
+            <%= link_to album, method: :delete, data: { confirm: "Are you sure?" } do %>
+              <button type="button" class="btn btn-danger">
+                Destroy
+              </button>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+<% if logged_in? %>
+  <%= link_to "New Album", new_album_path %>
+<% end %>
