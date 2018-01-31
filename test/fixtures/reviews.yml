@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  rating: 1
-  comment: MyString
+  rating: 1.5
+  first_name: MyString
+  last_initial: MyString
+  location: MyString
+  description: MyText
 
 two:
-  rating: 1
-  comment: MyString
+  rating: 1.5
+  first_name: MyString
+  last_initial: MyString
+  location: MyString
+  description: MyText
