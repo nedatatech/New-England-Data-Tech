@@ -5,7 +5,7 @@
   <%= render partial: 'main_carousel' %>
 </div>
 <div class="row">
-  <%= render partial: 'reviews' %>
+  <%= render partial: 'reviews', locals: { reviews: @reviews } %>
 </div>
 <div class="row">
     <%= render partial: 'contact' %>
