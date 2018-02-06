@@ -1,75 +1,51 @@
-<div class="container-fluid">     
-    <div id="reviews" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#reviews" data-slide-to="0" class="active"></li>
-        <li data-target="#reviews" data-slide-to="1"></li>
-        <li data-target="#reviews" data-slide-to="2"></li>
-      </ol>
-
-      <div class="carousel-inner" role="listbox">
-        <% reviews.each.with_index do |review, index| %>
-          <% if index == 0 %>
-            <div class="item active">                        
-              <div class="carousel-content">
-                <div>
-                  <span class='card-rating'>
-                    <% review.rating.to_i.times do |rating| %>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    <% end %>
-                    <% if review.rating % 1 != 0 %>
-                      <span class="glyphicon glyphicon-star glyphicon-half" aria-hidden="true"></span>
-                    <% end %>
-                  </span>
-                </div>
-                <div>
-                  <p class="text-center">
-                    <%= review.first_name %>
-                    <%= review.last_initial %>
-                  </p>
-                </div>
-                <div>
-                  <p class="text-center">
-                    <%= review.description %>
-                  </p>
-                </div>
-              </div>        
+<div id="reviews" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <% reviews.each.with_index do |review, index| %>
+      <% if index == 0 %>
+        <div class="item active">                        
+          <h1>
+            <div class="carousel-content">
+              <% review.rating.to_i.times do |rating| %>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+              <% end %>
+              <% if review.rating % 1 != 0 %>
+                <span class="glyphicon glyphicon-star glyphicon-half" aria-hidden="true"></span>
+              <% end %>
+              <br>
+              <%= review.first_name %>
+              <%= review.last_initial %>
+              <br>
+              <%= review.description %>                        
             </div>
-          <% else %>
-            <div class="item">                        
-               <div class="carousel-content">
-                <div>
-                  <span class="text-center">
-                    <% review.rating.to_i.times do |rating| %>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    <% end %>
-                    <% if review.rating % 1 != 0 %>
-                      <span class="glyphicon glyphicon-star glyphicon-half" aria-hidden="true"></span>
-                    <% end %>
-                  </span>
-                </div>
-                <div>
-                  <p class="text-center">
-                    <%= review.first_name %>
-                    <%= review.last_initial %>
-                  </p>
-                </div>                                
-                 <div>
-                   <p class="text-center">
-                     <%= review.description %>
-                   </p>
-                 </div>
-               </div>        
-             </div>
-          <% end %>
-        <% end %>
-      <a class="left carousel-control" href="#reviews" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-
-      <a class="right carousel-control" href="#reviews" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+          </h1>     
+        </div>
+      <% else %>
+        <div class="item">  
+          <h1>                      
+            <div class="carousel-content">
+              <% review.rating.to_i.times do |rating| %>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+              <% end %>
+              <% if review.rating % 1 != 0 %>
+                <span class="glyphicon glyphicon-star glyphicon-half" aria-hidden="true"></span>
+              <% end %>
+              <br>
+              <%= review.first_name %>
+              <%= review.last_initial %>
+              <br>
+              <%= review.description %>
+            </div>
+          </h1>
+        </div>  
+      <% end %>
+    <% end %>
+    <a class="left carousel-control" href="#reviews" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#reviews" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 </div>

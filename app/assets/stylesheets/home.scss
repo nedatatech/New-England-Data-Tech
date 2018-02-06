@@ -20,19 +20,6 @@
   position: relative;
 }
 
-.carousel .item {
-  height: 500px;
-  background-color: #777;
-}
-
-.marketing {
-  padding-top: 2em;
-}
-
-.marketing .img-circle {
-  border: solid 1px #777;
-}
-
 .card-list {
   border: solid black;
   border-width: 1px;
@@ -72,4 +59,8 @@
 
 img.img-link {
   cursor: pointer;
+}
+
+body {
+  margin: 0;
 }
