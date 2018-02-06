@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     respond_to :html
   end
 
-  def gallery
+  def album
     respond_to :html
   end
 

@@ -1,3 +1,11 @@
-  <%= render partial: 'navbar' %>
-  <%= render partial: 'main_carousel' %>
-  <%= render partial: 'reviews', locals: { reviews: @reviews } %>
+  <div id="carousel_container">
+  	<div id="main_carousel">
+  	  <%= render partial: 'main_carousel' %>
+    </div>
+    <div id="review_carousel">  
+  	  <%= render partial: 'reviews', locals: { reviews: @reviews } %>
+  	</div>
+  </div>
+  <div id="page-content" class="container">
+    <%= yield %>
+  </div>

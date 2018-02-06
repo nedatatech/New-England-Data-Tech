@@ -48,8 +48,10 @@
   display: block;
 }
 
-.carousel-inner .item img {
-  min-height: 100%;
+.carousel {
+  width: 100%;
+  height:100%;
+  position: relative;
 }
 
 .glyphicon-half {
@@ -63,4 +65,28 @@ img.img-link {
 
 body {
   margin: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#carousel_container{
+    position: relative;
+    width: 100%;
+}
+
+#main_carousel {
+    width: 100%;
+    height: 100%;
+}
+
+#review_carousel {
+    position: absolute;
+    top: 350px;
+    right: 0px;
+    width: 100%;
+    height: 40px;
 }
