@@ -9,7 +9,7 @@ class AlbumsController < ApplicationController
   end  
 
   def index
-  	@galleries = Gallery.all
+  	#@galleries = Gallery.all
     @albums = Album.all
   end
 

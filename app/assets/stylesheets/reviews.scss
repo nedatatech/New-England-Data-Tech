@@ -1,0 +1,88 @@
+// Place all the styles related to the Reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+  font-size: 2em;
+  display: block;
+  color: white;
+  font-weight: 300;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid black;
+  background:rgba(0,0,0,0.5);
+  border-radius: 9px;
+}
+
+body {
+  margin: 0 !important;
+}
+
+#reviews.carousel {
+    height: 0px;
+    width:750px;
+    margin:0 auto;
+    figure {
+        position: absolute;
+        bottom: 10000;
+        right: 0;
+        height: 400px;
+        background-size: cover;
+        &::before{
+        	content:'';
+        	position: absolute;
+        	top:0;
+        	left: 0;
+        	right: 0;
+        	bottom:0;
+        	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));
+        	opacity: 0;
+        	will-change:opacity;
+        	transition: opacity 250ms ease-in-out;
+        }
+    }
+
+    &-inner {
+	    margin:0 auto;
+	}
+
+    .glyphicon-star {
+      color: gold;
+    }
+
+    .carousel-control {	    
+	    background-image: none;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    transform: translate(0);
+	    will-change:transform;
+	    transition:transform 250ms ease-in;
+	    opacity: 0.8;
+	    border-radius: 90px;
+	    &.left{
+	    	transform: translate(-100%);
+	    }
+	    &.right{
+	    	transform: translate(100%);
+	    }
+
+
+	}
+	&:hover{
+		.carousel-control{
+			&.left, &.right{
+				transform: translate(0);
+				opacity: 0.6;
+			}
+		}
+		figure {
+	        &::before{
+	        	opacity: 1;
+	        }
+	        .carousel-caption{
+	        	transform: translateY(0);
+	        }
+	    }
+	}
+}

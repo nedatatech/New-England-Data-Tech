@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @reviews = Review.all
     respond_to :html
   end
 
@@ -8,7 +9,7 @@ class HomeController < ApplicationController
     respond_to :html
   end
 
-  def gallery
+  def album
     respond_to :html
   end
 
