@@ -6,6 +6,9 @@
   	  <%= render partial: 'reviews', locals: { reviews: @reviews } %>
   	</div>
   </div>
-  <div id="page-content" class="container">
+  <div id="page-content" class="container" %>
+    <div id="under_construction" class="container">      
+      <%= render partial: 'under_construction.text.erb' %> 
+    </div>
     <%= yield %>
   </div>
