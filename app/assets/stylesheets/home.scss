@@ -134,3 +134,19 @@ $primary-color: red;
     position: absolute;
     top: 6rem;
 }
+
+#coming_soon {
+    position: absolute;
+    top: 250px;
+    right: 0px;
+    width: 100%;
+    height: 40px;
+    color: $primary-color;
+    font: 100% $font-stack;
+    font-size: 1.5rem;
+    text-align: center;
+    border: solid black;
+    border-width: 1px;
+    padding: 0px;
+    background: white;
+}
