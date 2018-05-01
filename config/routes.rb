@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'services', to: 'home#services'
   get 'contact', to: 'home#contact'
+  get "/pages/:page" => "pages#show"
 end
