@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+  
+  <h1><%= @service.name %></h1>
+
+<p>
+  <strong>Job type:</strong>
+  <%= @service.job_type %>
+</p>
+
+<p>
+  <strong>Base price:</strong>
+  <%= @service.base_price %>
+</p>
+
+<p>
+  <strong>Hourly rate:</strong>
+  <%= @service.hourly_rate %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @service.page_body %>
+</p>
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>

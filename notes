@@ -1,0 +1,9 @@
+Services
+ name:string
+ description:text
+ page_body:text
+ job_type:string
+ base_price:decimal
+ hourly_rate:decimal
+ avg_cost:decimal
+ slug:string:index
