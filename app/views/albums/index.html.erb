@@ -8,8 +8,10 @@
           <%= link_to album.name, album_path(album), class: "h3" %>
         </div>
         <div>
+
+          <% image = album.images.first %>
           <%= link_to album_path(album) do %>
-            <%= image_tag(album.name, class: "col-xs-12") if album.name.present? %>
+            <%= image_tag(image.file_url, class: "col-xs-12") if image.file.present? %>
           <% end %>
         <br><br>
         </div>
