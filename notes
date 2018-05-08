@@ -1,4 +1,4 @@
-Services
+Service
  name:string
  description:text
  page_body:text
@@ -7,3 +7,10 @@ Services
  hourly_rate:decimal
  avg_cost:decimal
  slug:string:index
+
+Service_content
+ service:references
+ text1:text
+ text2:text
+ text3:text
+ 

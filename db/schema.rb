@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501165106) do
+ActiveRecord::Schema.define(version: 20180507135132) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20180501165106) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "file"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.float    "rating"
     t.string   "first_name"
@@ -40,6 +48,16 @@ ActiveRecord::Schema.define(version: 20180501165106) do
     t.text     "description"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "service_contents", force: :cascade do |t|
+    t.integer  "service_id"
+    t.text     "text1"
+    t.text     "text2"
+    t.text     "text3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_service_contents_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|

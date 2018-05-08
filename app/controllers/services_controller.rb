@@ -11,10 +11,11 @@ class ServicesController < ApplicationController
   # GET /services/1.json
   def show
     @service = Service.find_by_slug(params[:id])
+    @review = Review.limit(1).order("RANDOM()").first
     @meta_title = meta_title 'TV Wall Mounting'
     @meta_description = 'TV wall mounting done right by professionals who care'
     respond_to do |format|
-    format.html # show.html.erb
+    format.html #{ render :layout => 'landing_page' }
     format.json { render json: @service }
   end
   end

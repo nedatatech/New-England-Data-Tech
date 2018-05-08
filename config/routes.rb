@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :service_contents
   resources :services
   resources :reviews
   get 'galleries/show'
