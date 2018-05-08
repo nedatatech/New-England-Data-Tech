@@ -1,0 +1,37 @@
+<%= form_for(service_content) do |f| %>
+  <% if service_content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service_content.errors.count, "error") %> prohibited this service_content from being saved:</h2>
+
+      <ul>
+      <% service_content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :service_id %>  
+    <%= f.collection_select(:service_id, Service.all, :id, :name) %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :text1 %>
+    <%= f.text_area :text1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text2 %>
+    <%= f.text_area :text2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text3 %>
+    <%= f.text_area :text3 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

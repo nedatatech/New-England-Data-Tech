@@ -1,0 +1,2 @@
+module ServiceContentsHelper
+end

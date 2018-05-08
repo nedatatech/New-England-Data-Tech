@@ -1,0 +1,42 @@
+<div class="text-center">
+	<br>
+	<%= image_tag ("/assets/images/landing_pages/tv_wall_mounting/title.png") %>	
+</div>
+<div id="reviews-container">
+  <br>
+    A randomly selected review:
+  <br>
+  <% @review.rating.to_i.times do |rating| %>
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  <% end %>
+  <% if @review.rating % 1 != 0 %>
+    <span class="glyphicon glyphicon-star glyphicon-half" aria-hidden="true"></span>
+  <% end %>
+  <br>
+  <%= @review.first_name %>
+  <%= @review.last_initial %>
+  <%= @review.location %>
+  <br>
+  <%= @review.description %>
+  <br><br>
+  <a href="/reviews">Click here to see more reviews<a>
+  <br><br>
+</div>
+  <a href="/contact">
+  	<div class="image-swap">  
+	</div>
+  </a>
+
+  <% @service_contents = @service.service_contents.first %>
+<div id="service_contents">	
+	<%= @service_contents.text1 %>
+</div>
+<div class="text-center">
+	<%= image_tag ("/assets/images/landing_pages/tv_wall_mounting/example.png") %>
+</div>
+<div id="service_contents">
+	<%= @service_contents.text2 %>
+</div>
+<div id="service_contents">
+	<%= @service_contents.text3 %>
+</div>

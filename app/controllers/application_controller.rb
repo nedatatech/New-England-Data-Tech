@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  BRAND_NAME = 'New England Data Tech'.freeze
+
+  def meta_title(title)
+    [title, BRAND_NAME].reject(&:empty?).join(' | ')
+  end
+
   helper_method :logged_in?
 
   private
