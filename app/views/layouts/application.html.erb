@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>New England Data Tech</title>
+    <title><%= @meta_title ? @meta_title : ApplicationController::BRAND_NAME %></title>
+     <% if @meta_description.present? %>
+       <meta name=”description” content=”<%= @meta_description %>”>
+     <% end %>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>  
+  </head>
   <body>
-    <%= render partial: 'home/navbar' %>
+  <%= render partial: 'home/navbar' %>
     <%= yield %>
   </body>
 </html>
