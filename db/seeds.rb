@@ -33,6 +33,11 @@ Review.create!([
   {rating: 5.0, first_name: "Rick", last_initial: "S.", location: "", description: "He was excellent, showed up, professional, on time ,so polite, he was great. I would use him again."}
 ])
 Service.create!([
-  {name: "TV Wall Mounting", job_type: "Installation", description: "Mounting a tv on the wall", base_price: "150.0", hourly_rate: "100.0", avg_cost: "250.0", slug: "wall-mounting"},
-  {name: "Networking", job_type: "Installation", description: "Installing an ethernet outlet", base_price: "150.0", hourly_rate: "100.0", avg_cost: "325.0", slug: "networking"}
+  {name: "TV Wall Mounting", job_type: "Installation", description: "Mounting a tv on the wall", page_body: "We will hang your tv real good because we're real good.", base_price: "150.0", hourly_rate: "100.0", avg_cost: "250.0", slug: "wall-mounting"},
+])
+ServiceContent.create!([
+  {service_id: 1, text1: "For a TV hanging or wall mounting service every customer’s needs are different. We at New England Data Tech understand this, which is why we treat every single customer with special care. We begin by \r\nasking for some of the general information that every individual\r\ncan easily answer without much thought. Things like what size \r\nand type of TV you are putting up, what type of wall surface, where \r\nyou will want wires run and concealed, and what is your budget? \r\nOnce we have gathered what we can in that regard, we will determine \r\nif a prior visit to your home is needed to help in the planning phase. Either way throughout the process we will be doing our best to meet your needs and answer your questions as quickly as possible.", text2: "We send our trucks out to every job stocked with the proper tools and equipment for most situations. Our goal is that once we come to an agreement, we show up at our scheduled time, and get it done in a timely and professional manner.", text3: "What we can do for you is the first and last thought on our minds every single day. So, don’t think twice about contacting us today!"}
+])
+User.create!([
+  {name: nil, email: "poad27xx@gmail.com", password_digest: "$2a$10$ZWTFfemyTxKdneiZBwW4Jej1AJJ6ha1VDShEoO8IjHBQcgh1R03lq"},  
 ])

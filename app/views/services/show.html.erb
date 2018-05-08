@@ -1,27 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="text-center">
+	<br>
+	<%= image_tag ("/assets/images/landing_pages/tv_wall_mounting/title.png") %>	
+</div>
+<div id="reviews-container">
+  <br>
+    A randomly selected review:
+  <br>
+  <% @review.rating.to_i.times do |rating| %>
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  <% end %>
+  <% if @review.rating % 1 != 0 %>
+    <span class="glyphicon glyphicon-star glyphicon-half" aria-hidden="true"></span>
+  <% end %>
+  <br>
+  <%= @review.first_name %>
+  <%= @review.last_initial %>
+  <%= @review.location %>
+  <br>
+  <%= @review.description %>
+  <br><br>
+  <a href="/reviews">Click here to see more reviews<a>
+  <br><br>
+</div>
+  <a href="/contact">
+  	<div class="image-swap">  
+	</div>
+  </a>
 
-  
-  <h1><%= @service.name %></h1>
-
-<p>
-  <strong>Job type:</strong>
-  <%= @service.job_type %>
-</p>
-
-<p>
-  <strong>Base price:</strong>
-  <%= @service.base_price %>
-</p>
-
-<p>
-  <strong>Hourly rate:</strong>
-  <%= @service.hourly_rate %>
-</p>
-
-<p>
-  <strong>Info:</strong>
-  <%= @service.page_body %>
-</p>
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+  <% @service_contents = @service.service_contents.first %>
+<div id="service_contents">	
+	<%= @service_contents.text1 %>
+</div>
+<div class="text-center">
+	<%= image_tag ("/assets/images/landing_pages/tv_wall_mounting/example.png") %>
+</div>
+<div id="service_contents">
+	<%= @service_contents.text2 %>
+</div>
+<div id="service_contents">
+	<%= @service_contents.text3 %>
+</div>
